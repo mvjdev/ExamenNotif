@@ -1,9 +1,8 @@
-package com.example.examennotif;
+package com.example.examennotif.services.fcm;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.util.Log;
@@ -11,6 +10,7 @@ import android.util.Log;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
+import com.example.examennotif.MainActivity;
 import com.example.examennotif.R;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
