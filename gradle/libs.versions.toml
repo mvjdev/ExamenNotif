@@ -7,14 +7,18 @@ espressoCore = "3.6.1"
 appcompat = "1.7.0"
 material = "1.12.0"
 constraintlayout = "2.2.0"
+multidex = "2.0.1"
+multidexVersion = "2.0.1"
 navigationFragment = "2.8.6"
 navigationUi = "2.8.6"
 playServicesTasks = "18.2.0"
 googleGmsGoogleServices = "4.4.2"
 firebaseMessaging = "24.1.0"
 sns = "2.20.40'"
+urlConnectionClient = "2.20.40"
 
 [libraries]
+androidx-multidex = { module = "androidx.multidex:multidex", version.ref = "multidexVersion" }
 awssdk-sns = { module = "software.amazon.awssdk:sns" }
 bom = { module = "software.amazon.awssdk:bom", version.ref = "bom" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -23,12 +27,14 @@ espresso-core = { group = "androidx.test.espresso", name = "espresso-core", vers
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+multidex = { module = "com.android.support:multidex", version.ref = "multidex" }
 navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment", version.ref = "navigationFragment" }
 navigation-ui = { group = "androidx.navigation", name = "navigation-ui", version.ref = "navigationUi" }
 play-services-tasks = { group = "com.google.android.gms", name = "play-services-tasks", version.ref = "playServicesTasks" }
 firebase-messaging = { group = "com.google.firebase", name = "firebase-messaging", version.ref = "firebaseMessaging" }
 sns = { module = "'software.amazon.awssdk:sns", version.ref = "sns" }
 software-sns = { module = "software.amazon.awssdk:sns" }
+url-connection-client = { module = "software.amazon.awssdk:url-connection-client", version.ref = "urlConnectionClient" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

@@ -1,5 +1,4 @@
 import java.util.Properties
-import java.io.File
 
 val dotenv = Properties().apply {
     val envFile = rootProject.file(".env")
@@ -17,12 +16,28 @@ android {
     namespace = "com.example.examennotif"
     compileSdk = 35
 
+    packaging {
+        resources {
+            excludes += setOf(
+                "META-INF/INDEX.LIST",
+                "META-INF/DEPENDENCIES",
+                "META-INF/io.netty.versions.properties",
+                "META-INF/NOTICE",
+                "META-INF/LICENSE",
+                "META-INF/LICENSE.txt",
+                "META-INF/NOTICE.txt"
+            )
+        }
+    }
+
+
     defaultConfig {
         applicationId = "com.example.examennotif"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
+        multiDexEnabled = true
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -50,6 +65,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 }
 
@@ -63,7 +79,12 @@ dependencies {
     implementation(libs.play.services.tasks)
     implementation(libs.firebase.messaging)
     implementation(platform(libs.bom))
-    implementation(libs.software.sns)
+    implementation(libs.software.sns) {
+        exclude(group = "org.apache.httpcomponents", module = "httpclient")
+        exclude(group = "org.apache.httpcomponents", module = "httpcore")
+    }
+    implementation(libs.url.connection.client)
+    implementation(libs.androidx.multidex)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
